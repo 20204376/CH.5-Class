@@ -1,8 +1,0 @@
-class Stocks:
-    "삼성전자, LG전자, sk하이닉스"
-    def __init__(self, name, price) :
-     self.name=name
-     self.price=price
-
-lg=Stocks("LG전자", 15000)
-print(lg.name, lg.price)
