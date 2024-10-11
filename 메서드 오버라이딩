@@ -1,0 +1,13 @@
+class subStocks(Stocks) :
+  def reset(self):
+    self.count=100 #추가
+  def click(self, num_times=2):
+    """클릭 2배"""
+    self.count *= num_times
+  def subsubprice(self, price1):
+    self.price1=price1
+    return f'subprice반환' , self.price1
+  def addcountprice(self, count, price):
+    self.price=price
+    self.count=count
+    return f'100*count+price', 100*self.count+self.price
