@@ -1,0 +1,93 @@
+//1. 클래스의 개념과 정의
+클래스: 속성(데이터)과 메서드로 구성
+속성: 클래스 내부에서 정의되는 변수
+메서드: 클래스 내부에서 정의되는 멤버 함수
+객체: 일을 하는 주체, 클래스를 통해 생성//
+
+2. 클래스의 사용
+class Stocks:
+  "삼성전자, LG전자, SK하이닉스"
+  def __init__(self, name, price): # self는 Stocks 클래스 자신을 의미
+    self.name=name
+    self.price=price
+
+lg=Stocks("LG전자", 150000) # 객체를 생성할 때 인자를 넣어야 함
+print(lg.name, lg.price)
+
+LG전자 150000
+
+class Stocks:
+  "삼성전자, LG전자, SK하이닉스"
+  def __init__ (self, name, price, count=0): # self는 Stocks 클래스 자신을 의미
+    self.name=name
+    self.price=price
+    self.count=count
+
+lg=Stocks("LG전자", 150000) # 객체를 생성할 때 인자를 넣어야 함
+print(lg.name, lg.price, lg.count) # count의 기본값 출력
+
+LG전자 150000 0
+
+class Stocks:
+  "삼성전자, LG전자, SK하이닉스"
+  def __init__ (self, name, price, count=0): # self는 Stocks 클래스 자신을 의미
+    self.name=name
+    self.price=price
+    self.count=count
+  def click(self, num_times=1):
+    """클릭 횟수"""
+    self.count+= num_times # self.count=self.count+num_times
+lg=Stocks("LG전자", 150000) # 객체를 생성할 때 인자를 넣어야 함
+
+print(lg.name, lg.price, lg.count) #-- ❶ # count의 기본값 출력
+lg.click( )
+print(lg.name, lg.price, lg.count) #-- ❷
+lg.click( )
+print(lg.name, lg.price, lg.count) #-- ❸
+
+LG전자 150000 0
+LG전자 150000 1
+LG전자 150000 2
+
+class Stocks:
+  "삼성전자, LG전자, SK하이닉스"
+  def __init__ (self, name, price, count=0):
+    self.name=name
+    self.price=price
+    self.count=count
+  def __repr__(self): # 문자형 형태로 반환
+    return f"Stocks의 클릭 수(count={self.count})"
+  def click(self, num_times=1):
+    """클릭 횟수"""
+    self.count+= num_times
+  def read(self):
+    return self.count
+  def reset(self):
+    self.count=0
+
+    lg=Stocks("LG전자", 150000) # 객체를 생성할 때 인자를 넣어야 함
+print(lg.name, lg.price, lg.count) # count의 기본값 출력
+lg.click( )
+print(lg.name, lg.price, lg.count)
+lg.click( )
+print(lg.name, lg.price, lg.count)
+lg.click( )
+print(lg.name, lg.price, lg.count)
+
+LG전자 150000 0
+LG전자 150000 1
+LG전자 150000 2
+LG전자 150000 3
+
+lg.read( )
+print(lg.name, lg.price, lg.count) # count의 기본값 출력
+lg.reset( )
+print(lg.name, lg.price, lg.count) # count의 기본값 출력
+lg.click( )
+lg.click( )
+lg.click( )
+lg.__repr__( )
+
+LG전자 150000 3
+LG전자 150000 0
+Stocks의 클릭 수(count=3)
