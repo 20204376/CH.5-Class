@@ -1,0 +1,80 @@
+## 1 모듈
+### 모듈의 개념
+
+import math
+math.pi # math 모듈의 변수 pi
+
+from math import pi # math 모듈에서 변수 pi만 import
+pi # 변수 pi를 바로 사용해 원주율 출력
+
+from math import sqrt # math 모듈에서 sqrt 함수만 import
+sqrt(2.0)
+
+from math import sqrt as root1 # math 모듈에서 sqrt 함수를 가져오면서 이름을 root1로 지정
+root1(4.0) # root1로 sqrt 함수 사용
+
+from math import pi as p, sqrt as s
+p # p로 원주율 3.141592653589793 출력
+s(4.0) # s로 sqrt 함수를 사용해 2.0 출력
+
+import re as regex
+my_regex=regex.compile("[a-z]+")
+char="life is too short"
+my_regex.findall(char)
+
+###모듈 생성
+
+from google.colab import drive
+drive.mount('/content/drive')
+
+#import sys
+#sys.path.append('/content/drive/MyDrive/module')
+
+%cd /module
+
+import num_operator
+print(num_operator.add(3, 2)) # num_operator 모듈의 add 메서드 실행하기
+print(num_operator.min_quantity) # num_operator 모듈의 변수 불러오기
+a=num_operator.stock_value( ) # num_operator 모듈의 클래스 불러와 객체 a 생성하기
+print(a.cal(2000))
+
+##2. 패키지
+
+url status 200 은 http 호출에 대해 성공적인 응답을 의미하는 상태
+
+import urllib.request # '패키지.모듈' 형식으로 import
+response=urllib.request.urlopen('http://www.google.co.kr') # 패키지.모듈에 있는 함수
+response.status
+
+import urllib.request as r # '패키지.모듈명 as 이름' 형식으로 import
+response=r.urlopen('http://www.google.co.kr') # r로 urlopen 함수 사용
+response.status
+
+from urllib.request import Request, urlopen # Request 클래스, urlopen 함수 import
+req=Request('http://www.google.co.kr') # Request 클래스를 사용해 req 생성
+response=urlopen(req) # urlopen 함수 사용
+response.status
+
+from urllib.request import Request as r, urlopen as u
+req=r('http://www.google.co.kr') # r로 Request 클래스 사용
+response=u(req) # u로 urlopen 함수 사용
+response.status
+
+### 패키지 생성
+
+##1. __ init __ .py
+##2. cal.py
+##3. main.py
+##4. 실행
+
+from pack.cal import *
+add1(6, 6), mul1(6, 6)
+
+##5. stock.py
+##6. 실행
+
+from pack.stock import *
+min_quantity
+
+a=stock_value( )
+a.cal(1000)
