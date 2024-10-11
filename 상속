@@ -1,0 +1,42 @@
+3. 상속
+
+class subStocks(Stocks):
+  # 상위 클래스의 모든 기능을 받아오고 아무 일도 하지 않는 reset 기능 추가
+  def reset(self):
+    pass
+  def subprice(self,price1):
+    self.price1=price1
+    return f'subprice반환', self.price1
+  def addcountprice(self, count, price):
+    self.price=price
+    self.count=count
+    return f'price+count 합', self.price+self.count
+
+sublg=subStocks("LG전자", 150000)
+print(sublg.name, sublg.price, sublg.count) # 상위 클래스의 name, price, count 변수값 출력
+sublg.click( )
+sublg.click( )
+sublg.click( )
+print(sublg.name, sublg.price, sublg.count) # 상위 클래스의 click 메서드 실행 후 변수값 출력
+sublg.reset( )
+print(sublg.name, sublg.price, sublg.count) # 상위 클래스의 reset 메서드 실행 후 변수값 출력
+
+LG전자 150000 0
+LG전자 150000 3
+LG전자 150000 3
+
+sublg.subprice(180000)
+print(sublg.name, sublg.price, sublg.count, sublg.subprice(180000))
+
+LG전자 150000 3 ('subprice반환', 180000)
+
+sublg1=subStocks("LG전자", 150000)
+print(sublg1) # 기본값으로 Stocks의 클릭 수(count=0) 출력
+sublg1.click( )
+sublg1.click( )
+print(sublg1)
+sublg1.addcountprice(5, 150000)
+
+Stocks의 클릭 수(count=0)
+Stocks의 클릭 수(count=2)
+('price+count 합', 150005)
