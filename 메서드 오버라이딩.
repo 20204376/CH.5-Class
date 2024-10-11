@@ -1,0 +1,35 @@
+4. 메서드 오버라이딩
+
+class subsubStocks(subStocks):
+  def reset(self):
+    self.count=100 # 추가
+  def click(self, num_times=2):
+    """클릭 2배"""
+    self.count *= num_times
+  def subsubprice(self, price1):
+    self.price1=price1
+    return f'subprice반환', self.price1
+  def addcountprice(self, count, price):
+    self.price=price
+    self.count=count
+    return f'100*count+price', 100*self.count+self.price
+
+sublg7=subStocks("LG전자7", 140000)
+subsublg7=subsubStocks("LG전자7", 140000)
+print(subsublg7)
+subsublg7.reset( )
+subsublg7.click( )
+subsublg7.click( )
+subsublg7.click( )
+print(subsublg7)
+
+Stocks의 클릭 수(count=0)
+Stocks의 클릭 수(count=800)
+
+print(subsublg7.name, subsublg7.price, subsublg7.count) # 메서드 오버라이딩으로 800 출력
+print(sublg7.addcountprice(5, 100))
+print(subsublg7.addcountprice(5, 100))
+
+LG전자7 140000 800
+('price+count 합', 105)
+('100*count+price', 600)
